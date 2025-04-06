@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap');
+
+body {
+  font-family: 'Noto Serif SC', serif;
+  background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+  color: #5c1a1a;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  animation: fadeIn 2s ease-in;
+}
+
+.container {
+  background-color: #ffffff;
+  border: 2px solid #ffb6c1;
+  border-radius: 16px;
+  box-shadow: 0 0 25px #ffc0cb;
+  padding: 40px;
+  max-width: 700px;
+  width: 90%;
+  text-align: center;
+  animation: rise 1.5s ease-out;
+}
+
+h1, h2 {
+  color: #d6336c;
+  text-shadow: 1px 1px 0 #ffdce5;
+}
+
+button {
+  background-color: #ff6b81;
+  color: white;
+  font-weight: bold;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+button:hover {
+  background-color: #e64975;
+  transform: scale(1.05);
+}
+
+input, select {
+  border: 1px solid #ffc0cb;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 90%;
+}
+
+#lancers, #traits {
+  margin-top: 15px;
+  background-color: #fff8fb;
+  border: 1px dashed #ffa6c9;
+  border-radius: 12px;
+  padding: 10px;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rise {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.vanish {
+  animation: vanish 0.6s ease forwards;
+}
+@keyframes vanish {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: drop-shadow(0 0 3px #fdd);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-25px);
+    filter: drop-shadow(0 0 25px #faa);
+  }
+}
