@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Yi King 易經 - Oracle Chinois</title>
+  <link id="theme-style" rel="stylesheet" href="king.css"> <!-- Style par défaut -->
+  </head>
+<body>
+  <div class="container">
+    <h1>🧧 Yi King 易經</h1>
+    <p class="instructions">Pose ta question en silence... puis lance les pièces.</p>
+
+    <!-- 🧠 Zone de question -->
+    <input type="text" id="questionUtilisateur" placeholder="(Facultatif) Écris ta question ici..." style="padding: 10px; width: 80%; border-radius: 10px; border: 1px solid #ccc; margin-bottom: 15px;"><br>
+
+    <!-- 🌀 Choix de la catégorie -->
+    <label for="categorie">Catégorie de la question :</label>
+    <select id="categorie" class="categorie-select" onchange="changerTheme()" style="margin-bottom: 20px; padding: 8px; border-radius: 8px;">
+      <option value="générale">🌏 Générale</option>
+      <option value="amour">❤️ Amour</option>
+      <option value="santé">💊 Santé</option>
+      <option value="spirituel">🧘 Spirituel</option>
+    </select><br>
+
+    <button onclick="lancer()">🎲 Lancer les pièces</button>
+    <button onclick="reinitialiser()">🔄 Réinitialiser le tirage</button>
+
+    <div id="lancers"></div>
+
+    <div id="hexagramme">
+      <h2>Hexagramme</h2>
+      <div id="traits"></div>
+    </div>
+
+    <div id="resultat">
+      <h2>Interprétation</h2>
+      <p id="interpretation">Tu dois d'abord tirer les 6 lignes !</p>
+    </div>
+
+    <!-- 🔘 BOUTON RÈGLES -->
+    <div style="margin-top: 30px;">
+      <a href="rules.html">
+        <button style="background-color: #c0392b; color: white; padding: 12px 25px; font-size: 16px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">
+          📜 Voir les règles du Yi King
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <script src="king.js"></script>
+  
+  <!-- 🔁 Réinitialisation avec effet mystique -->
+  <script>
+    function reinitialiser() {
+      const lancers = document.getElementById("lancers");
+      const traits = document.getElementById("traits");
+      const interpretation = document.getElementById("interpretation");
+
+      lancers.classList.add("vanish");
+      traits.classList.add("vanish");
+      interpretation.classList.add("vanish");
+
+      setTimeout(() => {
+        lignes = [];
+        lancers.innerHTML = "";
+        traits.innerHTML = "";
+        interpretation.innerHTML = "Tu dois d'abord tirer les 6 lignes !";
+
+        lancers.classList.remove("vanish");
+        traits.classList.remove("vanish");
+        interpretation.classList.remove("vanish");
+      }, 600);
+    }
+
+    function changerTheme() {
+      const style = document.getElementById("theme-style");
+      const valeur = document.getElementById("categorie").value;
+
+      switch (valeur) {
+        case "amour":
+          style.href = "amour.css";
+          break;
+        case "santé":
+          style.href = "sante.css";
+          break;
+        case "spirituel":
+          style.href = "spiritualite.css";
+          break;
+        default:
+          style.href = "king.css";
+          break;
+      }
+    }
+  </script>
+</body>
