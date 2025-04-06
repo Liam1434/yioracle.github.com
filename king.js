@@ -768,30 +768,5 @@ function afficherInterpretation() {
   `;
 }
 
-// Script pour générer le PDF
-document.getElementById('generatePDF').addEventListener('click', function () {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
 
-  const question = document.getElementById('questionUtilisateur').value.trim() || "Aucune question posée";
-  const hexagramme = document.getElementById('hexagramme').textContent.trim() || "Aucun hexagramme trouvé";
-  const interpretation = document.getElementById('interpretation').innerHTML.trim() || "Pas d'interprétation";
-
-  // Ajouter du contenu au PDF
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(16);
-  doc.text('Yi King 易經', 10, 10);
-  doc.text('==============================', 10, 20);
-
-  doc.setFontSize(12);
-  doc.text('Ta question : ' + question, 10, 30);
-  doc.text('Hexagramme : ' + hexagramme, 10, 40);
-  doc.text('Interprétation : ', 10, 50);
-  doc.setFontSize(10);
-  doc.text(interpretation, 10, 60);
-
-  doc.text('Merci de consulter Yi King !', 10, 150);
-
-  // Sauvegarder le PDF
-  doc.save('YiKing_Interprétation.pdf');
-})}
+}
