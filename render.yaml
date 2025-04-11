@@ -1,0 +1,11 @@
+# Exported from Render on 2025-04-11T06:57:55Z
+services:
+- type: web
+  name: psychochat.github.com
+  runtime: node
+  repo: https://github.com/Liam1434/psychochat.github.com
+  plan: free
+  region: frankfurt
+  buildCommand: npm install
+  startCommand: node server.js
+version: "1"
